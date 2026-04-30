@@ -1,0 +1,31 @@
+[project]
+name = "ntk-kappa-validation"
+version = "1.0.0"
+description = "Empirical validation that the NTK-derived scalar κ predicts pairwise token competition under exact policy gradient"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "torch>=2.0",
+    "tqdm",
+    "transformers>=4.40",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu124", marker = "sys_platform == 'win32' or sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+    "sys_platform == 'darwin' and platform_machine == 'arm64'",
+]
