@@ -8,7 +8,7 @@ Empirical validation that the Neural Tangent Kernel (NTK)-derived scalar $\kappa
 
 Under NTK linearisation, the dynamics of two competing tokens $a, b$ during policy-gradient training are governed by a single scalar:
 
-$$\kappa = \frac{\langle x_{bc},\, x_{ba} \rangle}{\|x_{ba}\|^2}, \qquad x_{ba} = x_a - x_b, \quad x_{bc} = x_c - x_b$$
+$$\kappa = \frac{\langle x_{bc}, x_{ba} \rangle}{\|x_{ba}\|^2}, \qquad x_{ba} = x_a - x_b, \quad x_{bc} = x_c - x_b$$
 
 where $x_i = \nabla_w \theta_i$ is the gradient of token $i$'s logit with respect to trainable parameters, and $x_c$ is an effective complement gradient from all other tokens.
 
@@ -18,7 +18,7 @@ where $x_i = \nabla_w \theta_i$ is the gradient of token $i$'s logit with respec
 
 **Trajectory** (SGD only):
 
-$$\delta_{t+1} = \delta_t + \eta\, V_t(1 - V_t)\, \|x_{ba}\|^2\, (\sigma(\delta_t) - \kappa)$$
+$$\delta_{t+1} = \delta_t + \eta V_t(1 - V_t) \|x_{ba}\|^2 (\sigma(\delta_t) - \kappa)$$
 
 ## Experimental Setup
 
